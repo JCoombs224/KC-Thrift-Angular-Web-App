@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kc-thrift": {
+      "hosting": {
+        "kc-thrift": [
+          "kc-thrift"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kc-thrift"
+  }
+}
