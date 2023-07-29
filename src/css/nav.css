@@ -1,0 +1,42 @@
+.nav-wrapper {
+    height: 100vh;
+    width: 300px;
+    background-color: white;
+    position: fixed;
+}
+
+.nav-spacing {
+    /* margin-left: 300px; */
+}
+
+.navbar-brand {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.nav.main {
+    padding-left: 20px !important;
+    font-size: 1.2em;
+    font-family: Poppins, "Helvetica Neue", sans-serif; 
+    letter-spacing: 2px;
+    /* padding-right: 10% !important; */
+}
+
+.nav-link {
+    transition: 0.2s;
+}
+
+.nav-link.active {
+    color: red;
+    text-decoration: underline;
+    letter-spacing: 1px;
+}
+.nav-link:hover {
+    letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 2000px) {
+    .nav-spacing {
+        margin-left: 250px;
+    }
+  }

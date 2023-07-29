@@ -15,10 +15,16 @@ import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { NavComponent } from './layout/nav/nav.component';
+import { HomeComponent } from './home/home.component';
+import { ShopComponent } from './pages/shop/shop.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    HomeComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,

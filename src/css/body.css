@@ -1,0 +1,11 @@
+.bg-main {
+    height: 100vh;
+    background-image: url("/assets/bg2.jpg");
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.main-container {
+    height: 100vh;
+    background-color: white;
+}

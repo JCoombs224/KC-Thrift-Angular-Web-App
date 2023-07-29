@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Kit-N-Caboodle Thrift Store';
+
+  constructor() { }
 }
