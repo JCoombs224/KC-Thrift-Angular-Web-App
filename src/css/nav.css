@@ -1,24 +1,125 @@
+@font-face {
+    font-family: AiyariIsland;
+    src: url("/assets/fonts/aiyari-island.otf") format("opentype");
+}
+@font-face {
+    font-family: AiyariCasual;
+    src: url("/assets/fonts/aiyari-casual.otf") format("opentype");
+}
+@font-face {
+    font-family: Brice;
+    src: url("/assets/fonts/brice.otf") format("opentype");
+}
+@keyframes headerOut {
+    0% {
+        
+    }
+    100% {
+        height: 0;
+    }
+}
+@keyframes headerIn {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 25vw;
+        max-height: 25vh;
+    }
+}
+@keyframes brandIn {
+    100% {
+        margin-left: 0;
+    }
+}
+@keyframes brandOut {
+    100% {
+        margin-left: -350px;
+    }
+}
+.navbar-header {
+    height: 25vw;
+    max-height: 200px;
+    overflow: hidden;
+    transition: 0.5s;
+    /* background-color: white; */
+    display: block;
+    /* background-image: url("/assets/bg2.jpg"); */
+}
+.navbar-header .logo-head {
+    font-size: clamp(3rem, 12vw, 7rem) !important;
+    letter-spacing: 0px;
+    -webkit-text-stroke: 2px black;
+}
+.navbar-header .logo-sub {
+    font-size: clamp(1rem, 6vw, 3rem) !important;
+    margin-top: -15px !important;
+}
+
+
+/* add header out when the screen scrolls down */
+.navbar-header.out {
+    /* animation: headerOut 0.5s  forwards; */
+    height: 0;
+}
+.navbar-brand.in {
+    /* animation: brandIn 0.5s forwards; */
+    margin-left: 0;
+}
+
 .nav-wrapper {
-    height: 100vh;
-    width: 300px;
+    height: 60px;
+    width: 100%;
     background-color: white;
-    position: fixed;
+    position: sticky;
+    display: flex;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    text-decoration: none;
+    /* -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; */
+}
+.logo-head {
+    color: red;
+    -webkit-text-stroke: 1.5px black;
+    font-size: 3rem;
+    font-family: AiyariIsland;
+    letter-spacing: 3px;
+}
+.logo-sub {
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: Brice;
+    text-align: center;
+    margin-top: -15px;
+    padding-right: 8px;
+    /* letter-spacing: 3px; */
 }
 
 .nav-spacing {
-    /* margin-left: 300px; */
+    /* margin-top: 60px; */
 }
 
 .navbar-brand {
-    padding-left: 10%;
-    padding-right: 10%;
+    margin-left: -350px;
+    overflow: hidden;
+    padding-left: 8px;
+    margin-top: -10px;
+    transition: 0.5s;
 }
 
 .nav.main {
     padding-left: 20px !important;
-    font-size: 1.2em;
+    font-size: 1rem;
+    /* font-family: AiyariCasual; */
+    align-items: center;
     font-family: Poppins, "Helvetica Neue", sans-serif; 
-    letter-spacing: 2px;
+    /* letter-spacing: 2px; */
     /* padding-right: 10% !important; */
 }
 
@@ -32,11 +133,11 @@
     letter-spacing: 1px;
 }
 .nav-link:hover {
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
 }
 
-@media only screen and (max-width: 2000px) {
+/* @media only screen and (max-width: 2000px) {
     .nav-spacing {
         margin-left: 250px;
     }
-  }
+  } */
