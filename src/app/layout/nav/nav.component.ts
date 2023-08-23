@@ -62,13 +62,15 @@ export class NavComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event']) 
-  doSomething(event) {
+  toggleHeader(event) {
     if(this.showHeader) {
       if(!this.headerScrolled && window.scrollY > 0) {
         this.headerScrolled = true;
-        // window.scrollTo(0, 0);
         document.getElementById('navbarHeader').classList.add('out');
         document.getElementById('navBrand').classList.add('in');
+        setTimeout(() => {
+          window.scroll(0, 1);
+        }, 500);
       }
       else if(this.headerScrolled && window.scrollY === 0) {
         this.headerScrolled = false;

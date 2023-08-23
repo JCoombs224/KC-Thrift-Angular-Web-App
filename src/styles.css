@@ -3,11 +3,11 @@
 @import 'css/nav.css';
 @import 'css/body.css';
 
-html, body { height: 100%; }
+/* html, body { height: 100%; } */
 body { 
     margin: 0;
     /* font-family: Poppins, "Helvetica Neue", sans-serif;  */
-    background-image: url("assets/pier2.jpg");
+    /* background-image: url("assets/pier2.jpg");
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 }
