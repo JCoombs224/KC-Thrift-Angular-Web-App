@@ -45,7 +45,6 @@ export class NavComponent implements OnInit {
     }
 
     this.router.events.subscribe((val) => {
-      console.log(this.router.url);
       if(this.router.url == '/' || this.router.url == '/#/') {
         this.showHeader = true;
         if(window.scrollY == 0) {
@@ -64,15 +63,15 @@ export class NavComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) 
   toggleHeader(event) {
     if(this.showHeader) {
-      if(!this.headerScrolled && window.scrollY > 0) {
+      if(!this.headerScrolled && window.scrollY > 100) {
         this.headerScrolled = true;
-        document.getElementById('navbarHeader').classList.add('out');
+        // document.getElementById('navbarHeader').classList.add('out');
         document.getElementById('navBrand').classList.add('in');
-        setTimeout(() => {
-          window.scroll(0, 1);
-        }, 500);
+        // setTimeout(() => {
+        //   window.scroll(0, 1);
+        // }, 500);
       }
-      else if(this.headerScrolled && window.scrollY === 0) {
+      else if(this.headerScrolled && window.scrollY <= 100) {
         this.headerScrolled = false;
         document.getElementById('navbarHeader').classList.remove('out');
         document.getElementById('navBrand').classList.remove('in');

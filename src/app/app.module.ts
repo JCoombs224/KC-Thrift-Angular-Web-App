@@ -18,6 +18,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { NavComponent } from './layout/nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { ShopComponent } from './pages/shop/shop.component';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ApolloModule } from 'apollo-angular';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { ShopComponent } from './pages/shop/shop.component';
     provideFunctions(() => getFunctions()),
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    GraphQLModule,
+    ApolloModule,
+    HttpClientModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

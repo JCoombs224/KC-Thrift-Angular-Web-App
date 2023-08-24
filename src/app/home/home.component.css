@@ -1,5 +1,7 @@
 .home-tile {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .home-tile-lg {
