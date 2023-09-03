@@ -26,13 +26,21 @@ export class ShopComponent implements OnInit {
       this.category = params['category'];
       this.categoryChange();
     });
+    const productsCache = sessionStorage.getItem('products');
+    if (productsCache)
+      this.products = JSON.parse(productsCache);
+    console.log("Saved Products", this.products);
+
+    this.getProducts();
+  }
+
+  getProducts() {
     this.shopifyService.getProducts().subscribe(({data, loading}) => {
       let nodes = data as any;
       nodes = nodes.products.edges;
       this.addProducts(nodes);
       console.log(this.products);
     });
-    // log the shopify products to the console
   }
 
   categoryChange() {
@@ -41,8 +49,9 @@ export class ShopComponent implements OnInit {
   }
 
   addProducts(nodes) {
+    const list = [];
     for(let node of nodes) {
-      this.products.push({
+      list.push({
         id: node.node.id,
         title: node.node.title,
         description: node.node.description,
@@ -50,6 +59,8 @@ export class ShopComponent implements OnInit {
         image: node.node.featuredImage.url
       });
     }
+    this.products = list;
+    sessionStorage.setItem('products', JSON.stringify(this.products));
   }
 
   viewProduct(product) {
