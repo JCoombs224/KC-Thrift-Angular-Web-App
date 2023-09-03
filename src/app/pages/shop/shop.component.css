@@ -1,0 +1,8 @@
+.shop-card {
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.shop-card:hover {
+  transform: scale(1.02)
+}

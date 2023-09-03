@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ApolloQueryResult, gql } from '@apollo/client/core';
-import { Apollo, ApolloModule } from 'apollo-angular';
-import { Observable } from 'rxjs';
+import { gql } from '@apollo/client/core';
+import { Apollo } from 'apollo-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +12,16 @@ export class ShopifyService {
   getProducts() {
     return this.apollo.query({
       query: gql`{
-        products (first: 3) {
+        products (first: 10) {
           edges {
             node {
               id
               title
+              createdAt
+              description
+              featuredImage {
+                url
+              }
             }
           }
         }

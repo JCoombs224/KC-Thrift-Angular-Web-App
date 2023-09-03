@@ -21,13 +21,16 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule } from 'apollo-angular';
+import {ViewProductModalComponent} from "./layout/modals/view-product-modal.component";
+import {ModalModule} from "ngx-bootstrap/modal";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    ShopComponent
+    ShopComponent,
+    ViewProductModalComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { ApolloModule } from 'apollo-angular';
     provideStorage(() => getStorage()),
     GraphQLModule,
     ApolloModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

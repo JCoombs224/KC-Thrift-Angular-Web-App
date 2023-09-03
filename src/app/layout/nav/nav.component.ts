@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-nav',
@@ -60,7 +61,7 @@ export class NavComponent implements OnInit {
     });
   }
 
-  @HostListener('window:scroll', ['$event']) 
+  @HostListener('window:scroll', ['$event'])
   toggleHeader(event) {
     if(this.showHeader) {
       if(!this.headerScrolled && window.scrollY > 100) {
@@ -77,7 +78,8 @@ export class NavComponent implements OnInit {
         document.getElementById('navBrand').classList.remove('in');
       }
     }
-    
+
   }
 
+    protected readonly faShoppingCart = faShoppingCart;
 }
