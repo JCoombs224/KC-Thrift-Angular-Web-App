@@ -21,6 +21,7 @@ export class ShopifyService {
               description
               featuredImage {
                 url
+                thumbnail: transformedSrc(maxWidth: 500, maxHeight: 500)
               }
               priceRange {
                 minVariantPrice {
@@ -30,6 +31,14 @@ export class ShopifyService {
                 maxVariantPrice {
                   amount
                   currencyCode
+                }
+              }
+              images(first: 10) {
+                edges {
+                  node {
+                    src
+                    largerImage: transformedSrc(maxWidth: 500, maxHeight: 500)
+                  }
                 }
               }
             }

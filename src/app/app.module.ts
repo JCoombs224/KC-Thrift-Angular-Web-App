@@ -25,6 +25,7 @@ import {ViewProductModalComponent} from "./layout/modals/view-product-modal.comp
 import {ModalModule} from "ngx-bootstrap/modal";
 import {ToastrModule} from "ngx-toastr";
 import {CartComponent} from "./layout/nav/cart.component";
+import {CarouselModule} from "ngx-bootstrap/carousel";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {CartComponent} from "./layout/nav/cart.component";
     ApolloModule,
     HttpClientModule,
     ModalModule.forRoot(),
+    CarouselModule.forRoot(),
     ToastrModule.forRoot(
       {
         positionClass: 'toast-bottom-right',

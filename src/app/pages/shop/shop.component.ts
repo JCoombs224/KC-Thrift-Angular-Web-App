@@ -57,7 +57,9 @@ export class ShopComponent implements OnInit {
         title: node.node.title,
         description: node.node.description,
         createdAt: node.node.createdAt,
-        image: node.node.featuredImage.url,
+        image: node.node.featuredImage.thumbnail,
+        image_full_res: node.node.featuredImage.high_res,
+        images: node.node.images.edges,
         price: Number(node.node.priceRange.minVariantPrice.amount).toFixed(2),
       });
     }
