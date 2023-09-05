@@ -33,6 +33,12 @@
     </ul>
   </div>
   <div class="d-flex align-items-center pe-3">
-    <button class="btn btn-success"><fa-icon [icon]="faShoppingCart"></fa-icon> Cart</button>
+    <span class="position-relative">
+        <button class="btn btn-success" (click)="openCart()"><fa-icon [icon]="faShoppingCart"></fa-icon> Cart</button>
+        <span *ngIf="cart.getCartCount()" class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 90%; left: 95%">
+          {{cart.getCartCount()}}
+        </span>
+      </span>
   </div>
 </div>
+<app-cart></app-cart>

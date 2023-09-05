@@ -39,7 +39,8 @@ export class ShopComponent implements OnInit {
       let nodes = data as any;
       nodes = nodes.products.edges;
       this.addProducts(nodes);
-      console.log(this.products);
+      console.log("Nodes", nodes);
+      console.log("Products", this.products);
     });
   }
 
@@ -56,7 +57,8 @@ export class ShopComponent implements OnInit {
         title: node.node.title,
         description: node.node.description,
         createdAt: node.node.createdAt,
-        image: node.node.featuredImage.url
+        image: node.node.featuredImage.url,
+        price: Number(node.node.priceRange.minVariantPrice.amount).toFixed(2),
       });
     }
     this.products = list;
@@ -66,13 +68,9 @@ export class ShopComponent implements OnInit {
   viewProduct(product) {
     const initialState = {
       initialState: {
-        product: product,
-        callback: (result) => {
-
-        },
+        product: product
       },
       title: 'modal',
-      backdrop: 'static',
       class: 'modal-lg'
     };
     this.modalRef = this.modalService.show(ViewProductModalComponent, initialState as ModalOptions);

@@ -1,0 +1,48 @@
+<div class="cart-backdrop" (click)="closeCart()" *ngIf="isOpen"></div>
+
+<div class="cart-slide-out" [class.open]="isOpen">
+  <div class="text-end">
+    <button type="button" class="btn-close close" aria-label="Close" (click)="closeCart()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <!-- Cart contents go here -->
+  <h2 class="ps-3 cart-title">My Cart</h2>
+  <hr class="mb-0">
+  <!-- List of cart items, totals, etc. -->
+  <span class="ms-3 text-muted" *ngIf="!cart.getCartCount()">Shopping cart is empty.</span>
+  <ul class="list-group cart-list">
+    <li class="list-group-item" *ngFor="let product of cart.cart">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-auto">
+              <img [src]="product.image" [alt]="product.title" height="50px" width="50px" class="cart-item-image object-fit-fill me-2" />
+            </div>
+            <div class="col p-0">
+              <div class="row">
+                  <div class="col p-0">
+                    <span class="cart-item-name">{{ product.title }}</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col p-0">
+                    <span class="cart-item-price">{{ product.price | currency }}</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-sm btn-outline-danger" (click)="cart.removeFromCart(product)">
+            <span class="visually-hidden">Remove</span>
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="cart-checkout">
+    <button class="btn btn-success col-8 offset-2">Checkout</button>
+  </div>
+</div>

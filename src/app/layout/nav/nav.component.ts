@@ -2,6 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-nav',
@@ -35,7 +36,8 @@ export class NavComponent implements OnInit {
   showHeader = false;
   headerScrolled = false;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,
+              public cart: CartService) { }
 
   ngOnInit() {
     if(this.router.url == '/' || this.router.url == '/#/') {
@@ -79,6 +81,10 @@ export class NavComponent implements OnInit {
       }
     }
 
+  }
+
+  openCart() {
+    this.cart.toggleCart(true);
   }
 
     protected readonly faShoppingCart = faShoppingCart;

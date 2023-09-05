@@ -13,8 +13,8 @@
       {{product.description}}
     </p>
     <h3 class="display-6 p-3">
-      $9.99
+      ${{product.price}}
     </h3>
-    <button class="btn btn-lg btn-success"><fa-icon [icon]="faShoppingCart"></fa-icon> Add to Cart</button>
+    <button class="btn btn-lg btn-success" (click)="addToCart()"><fa-icon [icon]="faShoppingCart"></fa-icon> Add to Cart</button>
   </div>
 </div>

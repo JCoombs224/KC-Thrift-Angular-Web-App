@@ -22,6 +22,16 @@ export class ShopifyService {
               featuredImage {
                 url
               }
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+                maxVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
             }
           }
         }
@@ -29,3 +39,13 @@ export class ShopifyService {
     });
   }
 }
+// TODO: Add this after pricerange
+// variants(first: 10) {
+//   edges {
+//     node {
+//       id
+//       title
+//       quantityAvailable
+//     }
+//   }
+// }

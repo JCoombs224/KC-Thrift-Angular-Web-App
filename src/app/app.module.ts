@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule } from 'apollo-angular';
 import {ViewProductModalComponent} from "./layout/modals/view-product-modal.component";
 import {ModalModule} from "ngx-bootstrap/modal";
+import {ToastrModule} from "ngx-toastr";
+import {CartComponent} from "./layout/nav/cart.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import {ModalModule} from "ngx-bootstrap/modal";
     NavComponent,
     HomeComponent,
     ShopComponent,
-    ViewProductModalComponent
+    ViewProductModalComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,13 @@ import {ModalModule} from "ngx-bootstrap/modal";
     GraphQLModule,
     ApolloModule,
     HttpClientModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ToastrModule.forRoot(
+      {
+        positionClass: 'toast-bottom-right',
+        closeButton: true,
+      }
+    ),
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
