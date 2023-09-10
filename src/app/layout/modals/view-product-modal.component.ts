@@ -12,6 +12,8 @@ export class ViewProductModalComponent implements OnInit {
 
   modalRef: BsModalRef;
   product;
+  isFullscreen = false;
+  fullScreenUrl = '';
 
   constructor(public bsModalRef: BsModalRef,
               public cart: CartService,
@@ -29,6 +31,18 @@ export class ViewProductModalComponent implements OnInit {
     this.cart.addToCart(this.product);
     this.toastr.success("Product added to cart");
     this.bsModalRef.hide();
+  }
+
+  toggleFullscreen(url?) {
+    console.log(true);
+    if(url) {
+      this.fullScreenUrl = url;
+      this.isFullscreen = true;
+    }
+    else {
+      this.isFullscreen = false;
+      this.fullScreenUrl = '';
+    }
   }
 
   protected readonly faShoppingCart = faShoppingCart;

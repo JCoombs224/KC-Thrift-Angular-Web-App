@@ -53,16 +53,22 @@ export class ShopComponent implements OnInit {
   addProducts(nodes) {
     const list = [];
     for(let node of nodes) {
+      if(node.node.variants.edges[0].node.availableForSale === false) continue;
       list.push({
         id: node.node.id,
         title: node.node.title,
         description: node.node.description,
         createdAt: node.node.createdAt,
         image: node.node.featuredImage.thumbnail,
-        image_full_res: node.node.featuredImage.high_res,
+        image_full_res: node.node.featuredImage.url,
         images: node.node.images.edges,
         price: Number(node.node.priceRange.minVariantPrice.amount).toFixed(2),
+        size: node.node.variants.edges[0].node.title,
+        collections: [],
       });
+      for(let collection of node.node.collections.edges) {
+        list[list.length - 1].collections.push(collection.node.title);
+      }
     }
     this.products = list;
     sessionStorage.setItem('products', JSON.stringify(this.products));

@@ -12,13 +12,28 @@ export class ShopifyService {
   getProducts() {
     return this.apollo.query({
       query: gql`{
-        products (first: 10) {
+        products (first: 20) {
           edges {
             node {
               id
               title
               createdAt
               description
+              collections(first: 10) {
+                edges {
+                  node {
+                    title
+                  }
+                }
+              }
+              variants(first: 5) {
+                edges {
+                  node {
+                    title
+                    availableForSale
+                  }
+                }
+              }
               featuredImage {
                 url
                 thumbnail: transformedSrc(maxWidth: 500, maxHeight: 500)
@@ -33,11 +48,12 @@ export class ShopifyService {
                   currencyCode
                 }
               }
-              images(first: 10) {
+              images(first: 20) {
                 edges {
                   node {
                     src
                     largerImage: transformedSrc(maxWidth: 500, maxHeight: 500)
+                    full_res: transformedSrc(maxWidth: 2000, maxHeight: 2000)
                   }
                 }
               }

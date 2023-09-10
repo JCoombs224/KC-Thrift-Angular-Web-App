@@ -1,3 +1,7 @@
+<div class="fullscreen-img text-center" *ngIf="isFullscreen">
+  <div class="spinner-border text-light"></div>
+  <img [src]="fullScreenUrl" class="img-fluid" (click)="toggleFullscreen()">
+</div>
 <div class="modal-body">
   <div class="text-end">
     <button type="button" class="btn-close close" aria-label="Close" (click)="cancel()">
@@ -9,7 +13,7 @@
     <carousel style="max-width: 90%; height: 50%">
       <!-- Loop through images of each product -->
       <slide *ngFor="let image of product.images">
-        <img src="{{ image.node.largerImage }}" alt="Image description">
+        <img src="{{ image.node.largerImage }}" (click)="toggleFullscreen(image.node.full_res)">
       </slide>
     </carousel>
   </div>
@@ -18,6 +22,7 @@
     <p>
       {{product.description}}
     </p>
+    <h4>{{product.size}}</h4>
     <h3 class="display-6 p-3">
       ${{product.price}}
     </h3>
