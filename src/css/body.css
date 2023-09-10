@@ -12,3 +12,9 @@
     height: 100%;
     /* overflow: auto; */
 }
+
+.carousel slide img {
+  width: 100%; /* make the image fit the slide */
+  margin: auto;
+  display: block;
+}
