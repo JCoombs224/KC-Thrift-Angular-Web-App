@@ -42,6 +42,7 @@ export class ShopComponent implements OnInit {
       console.log("Nodes", nodes);
       console.log("Products", this.products);
     });
+    // test
   }
 
   categoryChange() {
