@@ -1,6 +1,7 @@
 <div class="fullscreen-img text-center" *ngIf="isFullscreen">
   <div class="spinner-border text-light"></div>
   <img [src]="fullScreenUrl" class="img-fluid" (click)="toggleFullscreen()">
+  <small class="text-light">Click/Tap anywhere to close.</small>
 </div>
 <div class="modal-body">
   <div class="text-end">
@@ -13,7 +14,7 @@
     <carousel style="max-width: 90%; height: 50%">
       <!-- Loop through images of each product -->
       <slide *ngFor="let image of product.images">
-        <img src="{{ image.node.largerImage }}" (click)="toggleFullscreen(image.node.full_res)">
+        <img src="{{ image.node.largerImage }}" (click)="toggleFullscreen(image.node.full_res)" class="cursor-pointer">
       </slide>
     </carousel>
   </div>

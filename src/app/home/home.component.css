@@ -10,17 +10,18 @@
 
 .home-tile-sm {
     height: 30vw;
+    cursor: pointer;
 }
 
 .darken {
     transition: 0.5s;
-    filter: brightness(50%);
+    filter: brightness(75%);
 }
 
 .tile-bg-img {
     background-repeat: no-repeat;
     background-size: cover;
-    background-origin: center;
+    background-position: bottom;
     height: 100%;
     width: 100%;
     z-index: 0;
