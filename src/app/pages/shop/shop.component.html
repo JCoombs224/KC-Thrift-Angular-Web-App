@@ -5,23 +5,45 @@
 </div>
 
 <div class="container-fluid">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4">
-    <div class="p-3" *ngFor="let product of products">
-      <div class="card shop-card h-100 bg-transparent border-0" (click)="viewProduct(product)">
-        <img [src]="onlineImg ? product.image : 'assets/mens3.jpg'" class="card-img-top rounded-4" style="height: 40vh; object-fit: contain" [alt]="product.title" loading="lazy">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{product.title}}</h5>
-          <p>${{product.price}}</p>
-          <!--        <p class="card-text">{{product.description}}</p>-->
-<!--          <div class="text-center mt-3">-->
-<!--            <button class="btn btn-lg btn-success">$9.99</button>-->
-<!--          </div>-->
+  <div class="row">
+    <div class="col-12 col-md-auto ps-4">
+      <h5 class="pt-3 pt-md-0 text-center text-md-start">Filters</h5>
+      <ul class="nav flex-md-column justify-content-center justify-content-md-start">
+        <li class="nav-item">
+          <a class="nav-link ps-md-0" [routerLink]="['/shop', category]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">All</a>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link ps-md-0" [routerLink]="['/shop', category, 'tops']" routerLinkActive="active">Tops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ps-md-0" routerLink="/shop/{{category}}/bottoms" routerLinkActive="active">Bottoms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ps-md-0" routerLink="/shop/{{category}}/shoes" routerLinkActive="active">Shoes</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="row justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4 mt-0">
+        <div class="p-3" *ngFor="let product of products">
+          <div class="card shop-card h-100 bg-transparent border-0" (click)="viewProduct(product)">
+            <img [src]="onlineImg ? product.image : 'assets/mens3.jpg'" class="card-img-top rounded-4" style="height: 40vh; object-fit: contain" [alt]="product.title" loading="lazy">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{product.title}}</h5>
+              <p>${{product.price}}</p>
+              <!--        <p class="card-text">{{product.description}}</p>-->
+              <!--          <div class="text-center mt-3">-->
+              <!--            <button class="btn btn-lg btn-success">$9.99</button>-->
+              <!--          </div>-->
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div *ngIf="products.length == 0" class="text-center">
-      There are no products available in this category.
-    </div>
+  </div>
+
+  <div *ngIf="products.length == 0" class="text-center mt-5">
+    There are no products available in this category.
   </div>
 </div>
 
