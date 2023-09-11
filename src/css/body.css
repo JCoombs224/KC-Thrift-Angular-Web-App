@@ -7,12 +7,18 @@
 
 .main-container {
     background-color: white;
-    padding-bottom: 200px;
     min-height: 100vh;
     height: 100%;
     /* overflow: auto; */
 }
-
+.footer {
+  margin-top: 8px;
+  height: 100px;
+  background-color: #f5f5f5;
+  background-image: url("/assets/bg2.jpg");
+  text-align: center;
+  padding-top: 20px;
+}
 .carousel slide img {
   width: 100%; /* make the image fit the slide */
   margin: auto;
@@ -41,7 +47,7 @@
   color: white;
   margin: auto;
   align-content: center;
-  z-index: 2000; 
+  z-index: 2000;
 }
 
 .fullscreen-img img{
@@ -51,9 +57,9 @@
   left: 0;
   right: 0;
   margin: auto;
-  height: 95vh;
-  object-fit: contain; 
-  z-index: 2001; 
+  height: 92vh;
+  object-fit: contain;
+  z-index: 2001;
 }
 
 .cursor-pointer {

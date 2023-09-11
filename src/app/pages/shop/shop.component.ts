@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ShopifyService } from 'src/app/services/shopify.service';
 import {BsModalRef, BsModalService, ModalOptions} from "ngx-bootstrap/modal";
 import {ViewProductModalComponent} from "../../layout/modals/view-product-modal.component";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-shop',
@@ -18,7 +19,8 @@ export class ShopComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private shopifyService: ShopifyService,
-              private modalService: BsModalService) { }
+              private modalService: BsModalService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     // Subscribe to the route params to get the category
@@ -31,23 +33,45 @@ export class ShopComponent implements OnInit {
       this.products = JSON.parse(productsCache);
     console.log("Saved Products", this.products);
 
-    this.getProducts();
+    this.categoryChange();
   }
 
   getProducts() {
-    this.shopifyService.getProducts().subscribe(({data, loading}) => {
+    this.shopifyService.getAllProducts().subscribe(({data, loading}) => {
       let nodes = data as any;
       nodes = nodes.products.edges;
       this.addProducts(nodes);
       console.log("Nodes", nodes);
       console.log("Products", this.products);
     });
-    // test
+  }
+
+  getCollection(collection = this.category) {
+    // FIXME: Fix collection handles in shopify
+    if(collection == 'mens') {
+      collection = 'mens-1';
+    }
+    this.shopifyService.getCollection(collection).subscribe(({data, loading}) => {
+      let nodes = data as any;
+      console.log('data', nodes);
+      if(nodes.collectionByHandle == null) {
+        this.products = [];
+        this.toastr.error("Collection not found");
+        return;
+      }
+      nodes = nodes.collectionByHandle.products.edges;
+      this.addProducts(nodes);
+      console.log("Products parsed", this.products);
+    });
   }
 
   categoryChange() {
-    // do something here
-    console.log(this.category);
+    if(this.category == 'all') {
+      this.getProducts();
+    }
+    else {
+      this.getCollection();
+    }
   }
 
   addProducts(nodes) {
@@ -56,6 +80,7 @@ export class ShopComponent implements OnInit {
       if(node.node.variants.edges[0].node.availableForSale === false) continue;
       list.push({
         id: node.node.id,
+        variant_id: node.node.variants.edges[0].node.id,
         title: node.node.title,
         description: node.node.description,
         createdAt: node.node.createdAt,

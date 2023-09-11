@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import {CartService} from "../../services/cart.service";
 
 @Component({
@@ -35,6 +35,7 @@ export class NavComponent implements OnInit {
 
   showHeader = false;
   headerScrolled = false;
+  menuOpen = false;
 
   constructor(public router: Router,
               public cart: CartService) { }
@@ -48,11 +49,13 @@ export class NavComponent implements OnInit {
     }
 
     this.router.events.subscribe((val) => {
-      if(this.router.url == '/' || this.router.url == '/#/') {
-        this.showHeader = true;
-        if(window.scrollY == 0) {
-          document.getElementById('navBrand').classList.remove('in');
-          document.getElementById('navbarHeader').classList.remove('out');
+      if((this.router.url == '/' || this.router.url == '/#/')) {
+        if(!this.menuOpen) {
+          this.showHeader = true;
+          if(window.scrollY == 0) {
+            document.getElementById('navBrand').classList.remove('in');
+            document.getElementById('navbarHeader').classList.remove('out');
+          }
         }
       }
       else {
@@ -60,6 +63,7 @@ export class NavComponent implements OnInit {
         document.getElementById('navBrand').classList.add('in');
         document.getElementById('navbarHeader').classList.add('out');
       }
+      this.menuOpen = false;
     });
   }
 
@@ -87,5 +91,22 @@ export class NavComponent implements OnInit {
     this.cart.toggleCart(true);
   }
 
-    protected readonly faShoppingCart = faShoppingCart;
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    if((this.router.url == '/' || this.router.url == '/#/') && !this.menuOpen) {
+      this.showHeader = true;
+      if(window.scrollY == 0) {
+        document.getElementById('navBrand').classList.remove('in');
+        document.getElementById('navbarHeader').classList.remove('out');
+      }
+    }
+    else {
+      this.showHeader = false;
+      document.getElementById('navBrand').classList.add('in');
+      document.getElementById('navbarHeader').classList.add('out');
+    }
+  }
+
+  protected readonly faShoppingCart = faShoppingCart;
+  protected readonly faBars = faBars;
 }

@@ -1,7 +1,7 @@
 <div class="fullscreen-img text-center" *ngIf="isFullscreen">
   <div class="spinner-border text-light"></div>
   <img [src]="fullScreenUrl" class="img-fluid" (click)="toggleFullscreen()">
-  <small class="text-light">Click/Tap anywhere to close.</small>
+  <small class="text-light">Click/Tap anywhere on image to close.</small>
 </div>
 <div class="modal-body">
   <div class="text-end">
@@ -14,7 +14,7 @@
     <carousel style="max-width: 90%; height: 50%">
       <!-- Loop through images of each product -->
       <slide *ngFor="let image of product.images">
-        <img src="{{ image.node.largerImage }}" (click)="toggleFullscreen(image.node.full_res)" class="cursor-pointer">
+        <img src="{{ image.node.largerImage }}" (click)="toggleFullscreen(image.node.full_res)" class="cursor-pointer" alt="Product Image">
       </slide>
     </carousel>
   </div>
@@ -27,6 +27,11 @@
     <h3 class="display-6 p-3">
       ${{product.price}}
     </h3>
-    <button class="btn btn-lg btn-success" (click)="addToCart()"><fa-icon [icon]="faShoppingCart"></fa-icon> Add to Cart</button>
+    <button *ngIf="!inCart" class="btn btn-lg btn-success" (click)="addToCart()"><fa-icon [icon]="faShoppingCart"></fa-icon> Add to Cart</button>
+    <button *ngIf="inCart" class="btn btn-lg btn-danger" (click)="removeFromCart()"><fa-icon [icon]="faX"></fa-icon> Remove from cart</button>
+<!--    <div *ngIf="inCart" (mouseenter)="hoveringCart = true" (mouseleave)="hoveringCart = false">-->
+<!--      <button *ngIf="!hoveringCart" class="btn btn-lg btn-success"><fa-icon [icon]="faShoppingCart"></fa-icon> Item already in cart</button>-->
+<!--      <button *ngIf="hoveringCart" class="btn btn-lg btn-danger" (click)="removeFromCart()"><fa-icon [icon]="faX"></fa-icon> Remove from cart</button>-->
+<!--    </div>-->
   </div>
 </div>

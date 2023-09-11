@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BsModalRef} from "ngx-bootstrap/modal";
-import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import {faShoppingCart, faX} from "@fortawesome/free-solid-svg-icons";
 import {CartService} from "../../services/cart.service";
 import {ToastrService} from "ngx-toastr";
 
@@ -14,13 +14,15 @@ export class ViewProductModalComponent implements OnInit {
   product;
   isFullscreen = false;
   fullScreenUrl = '';
+  inCart = false;
+  hoveringCart = false;
 
   constructor(public bsModalRef: BsModalRef,
               public cart: CartService,
               private toastr: ToastrService) {}
 
   ngOnInit() {
-
+    this.inCart = this.cart.inCart(this.product);
   }
 
   public cancel() {
@@ -30,6 +32,12 @@ export class ViewProductModalComponent implements OnInit {
   public addToCart() {
     this.cart.addToCart(this.product);
     this.toastr.success("Product added to cart");
+    this.bsModalRef.hide();
+  }
+
+  public removeFromCart() {
+    this.cart.removeFromCart(this.product);
+    this.toastr.success("Product removed from cart");
     this.bsModalRef.hide();
   }
 
@@ -46,4 +54,5 @@ export class ViewProductModalComponent implements OnInit {
   }
 
   protected readonly faShoppingCart = faShoppingCart;
+  protected readonly faX = faX;
 }

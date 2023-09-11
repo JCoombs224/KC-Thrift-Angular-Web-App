@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
+import {ShopifyService} from "./shopify.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,20 @@ export class CartService {
   private cartStatus = new BehaviorSubject<boolean>(false);
   cartStatus$ = this.cartStatus.asObservable();
 
-  constructor() {
+  constructor(private shopifyService: ShopifyService) {
     const cartCache = localStorage.getItem('cart');
     if (cartCache) {
       this.cart = JSON.parse(cartCache);
+    }
+
+    // Check that all items in cart are available
+    for (let p of this.cart) {
+      this.shopifyService.productAvailability(p.id).subscribe(({data, loading}) => {
+        const d = data as any;
+        if (!d.product.variants.edges[0].node.availableForSale) {
+          this.removeFromCart(p);
+        }
+      });
     }
   }
 
@@ -55,6 +66,10 @@ export class CartService {
   clearCart() {
     this.cart = [];
     localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  inCart(product): boolean {
+    return this.cart.some(cartProduct => cartProduct.id === product.id);
   }
 }
 

@@ -5,11 +5,11 @@
 }
 
 .home-tile-lg {
-    height: 95vh;
+    /*height: 95vh;*/
 }
 
 .home-tile-sm {
-    height: 30vw;
+    /*height: 30vw;*/
     cursor: pointer;
 }
 
@@ -20,12 +20,15 @@
 
 .tile-bg-img {
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    background-position: bottom;
     height: 100%;
     width: 100%;
     z-index: 0;
     transition: 0.5s;
+}
+.tile-bg-img img{
+    visibility: hidden;
 }
 
 .tile-content {
@@ -50,11 +53,14 @@
 } */
 
 @media screen and (max-width: 768px) {
-    .home-tile-lg {
-        height: 80vh;
-    }
+    /*.home-tile-lg {*/
+    /*    height: 80vh;*/
+    /*}*/
 
-    .home-tile-sm {
-        height: 80vh;
-    }
+    /*.home-tile-sm {*/
+    /*    height: 80vh;*/
+    /*}*/
+  /*.title-bg-img.banner {*/
+  /*  background-position: center;*/
+  /*}*/
 }

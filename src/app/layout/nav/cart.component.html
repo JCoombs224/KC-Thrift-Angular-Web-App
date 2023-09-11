@@ -11,8 +11,8 @@
   <hr class="mb-0">
   <!-- List of cart items, totals, etc. -->
   <span class="ms-3 text-muted" *ngIf="!cart.getCartCount()">Shopping cart is empty.</span>
-  <ul class="list-group cart-list">
-    <li class="list-group-item" *ngFor="let product of cart.cart">
+  <ul class="list-group cart-list mt-1">
+    <li class="list-group-item list-group-item-action cursor-pointer" (click)="viewProduct(product)" *ngFor="let product of cart.cart">
       <div class="row">
         <div class="col">
           <div class="row">
@@ -43,6 +43,6 @@
     </li>
   </ul>
   <div class="cart-checkout">
-    <button class="btn btn-success col-8 offset-2">Checkout</button>
+    <button class="btn btn-success col-8 offset-2" (click)="checkout()">Checkout</button>
   </div>
 </div>
