@@ -9,10 +9,11 @@ export class ShopifyService {
 
   constructor(private apollo: Apollo) { }
 
+  // TODO: pagination of products
   getAllProducts() {
     return this.apollo.query({
       query: gql`{
-        products (first: 20) {
+        products (first: 50) {
           edges {
             node {
               id
@@ -70,7 +71,7 @@ export class ShopifyService {
       query: gql`
       {
         collectionByHandle(handle: "${collection}") {
-          products(first: 20) {
+          products(first: 50) {
             edges {
               node {
                 id
