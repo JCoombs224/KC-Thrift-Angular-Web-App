@@ -11,7 +11,7 @@
 .cart-slide-out {
   position: fixed;
   top: 0;
-  right: -400px;
+  right: -405px;
   width: 400px;
   max-width: 99vw;
   height: 100%;
