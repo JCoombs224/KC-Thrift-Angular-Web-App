@@ -4,11 +4,13 @@ import { ShopifyService } from 'src/app/services/shopify.service';
 import {BsModalRef, BsModalService, ModalOptions} from "ngx-bootstrap/modal";
 import {ViewProductModalComponent} from "../../layout/modals/view-product-modal.component";
 import {ToastrService} from "ngx-toastr";
+import {fadeIn} from "../../animations/fade-in.animation";
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.css']
+  styleUrls: ['./shop.component.css'],
+  animations: [fadeIn]
 })
 export class ShopComponent implements OnInit {
 

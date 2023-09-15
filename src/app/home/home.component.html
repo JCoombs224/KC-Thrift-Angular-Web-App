@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col home-tile home-tile-lg" (mouseover)="isHover = 0" (mouseout)="isHover = -1">
+    <div *ngIf="tiles[0].img" [@fadeIn] class="col home-tile home-tile-lg" (mouseover)="isHover = 0" (mouseout)="isHover = -1">
         <div class="tile-bg-img banner" [style.background-image]="imgUrlPrefix+tiles[0].img+imgUrlSuffix" >
           <img [src]="tiles[0].img" class="img-fluid">
         </div><!--[class.darken]="isHover == 0"-->
@@ -22,9 +22,9 @@
 </div>
 
 <div class="row">
-    <div class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/womens" (mouseover)="isHover = 1" (mouseout)="isHover = -1">
+    <div *ngIf="tiles[1].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/womens" (mouseover)="isHover = 1" (mouseout)="isHover = -1">
         <div class="tile-bg-img" [style.background-image]="imgUrlPrefix+tiles[1].img+imgUrlSuffix" [class.darken]="isHover == 1">
-          <img [src]="tiles[1].img" class="img-fluid">
+          <img [src]="tiles[1].img" width="100%">
         </div>
         <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[1].rgb">
             <h2 class="display-1" *ngIf="tiles[1].title">{{tiles[1].title}}</h2>
@@ -33,9 +33,9 @@
             </p>
         </div>
     </div>
-    <div class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/mens" (mouseover)="isHover = 2" (mouseout)="isHover = -1">
+    <div *ngIf="tiles[2].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/mens" (mouseover)="isHover = 2" (mouseout)="isHover = -1">
         <div class="tile-bg-img" [style.background-image]="imgUrlPrefix+tiles[2].img+imgUrlSuffix" [class.darken]="isHover == 2">
-          <img [src]="tiles[2].img" class="img-fluid">
+          <img [src]="tiles[2].img" width="100%">
         </div>
         <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[2].rgb">
             <h2 class="display-1" *ngIf="tiles[2].title">{{tiles[2].title}}</h2>
@@ -44,9 +44,9 @@
             </p>
         </div>
     </div>
-    <div class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/accessories" (mouseover)="isHover = 3" (mouseout)="isHover = -1">
+    <div *ngIf="tiles[3].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/accessories" (mouseover)="isHover = 3" (mouseout)="isHover = -1">
         <div class="tile-bg-img" [style.background-image]="imgUrlPrefix+tiles[3].img+imgUrlSuffix" [class.darken]="isHover == 3">
-          <img [src]="tiles[3].img" class="img-fluid">
+          <img [src]="tiles[3].img" width="100%">
         </div>
         <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[3].rgb">
             <h3 class="display-1" *ngIf="tiles[3].title">{{tiles[3].title}}</h3>
