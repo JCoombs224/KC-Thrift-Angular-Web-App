@@ -14,6 +14,8 @@ import {fadeIn} from "../../animations/fade-in.animation";
 })
 export class ShopComponent implements OnInit {
 
+  // TODO: Paginate products
+
   modalRef: BsModalRef;
   category = '';
   products = [];
