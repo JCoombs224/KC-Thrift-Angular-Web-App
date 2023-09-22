@@ -54,7 +54,7 @@ export class ShopifyService {
                 edges {
                   node {
                     src
-                    largerImage: transformedSrc(maxWidth: 500, maxHeight: 500)
+                    largerImage: transformedSrc(maxWidth: 750, maxHeight: 750)
                     full_res: transformedSrc(maxWidth: 2000, maxHeight: 2000)
                   }
                 }
@@ -112,7 +112,7 @@ export class ShopifyService {
                   edges {
                     node {
                       src
-                      largerImage: transformedSrc(maxWidth: 500, maxHeight: 500)
+                      largerImage: transformedSrc(maxWidth: 750, maxHeight: 750)
                       full_res: transformedSrc(maxWidth: 2000, maxHeight: 2000)
                     }
                   }

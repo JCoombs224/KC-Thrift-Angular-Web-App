@@ -109,7 +109,7 @@ export class ShopComponent implements OnInit {
         product: product
       },
       title: 'modal',
-      class: 'modal-lg'
+      class: 'modal-xl'
     };
     this.modalRef = this.modalService.show(ViewProductModalComponent, initialState as ModalOptions);
     this.modalRef.content.product = product;

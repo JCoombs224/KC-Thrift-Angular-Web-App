@@ -66,3 +66,24 @@
   cursor: pointer;
 }
 
+.carousel-item{
+  position: relative;
+  height: 750px;
+  max-height: 65vh;
+}
+
+.carousel-img {
+  height: 100%;
+  background-size: cover;
+  position: absolute;   
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: contain!important;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel-item{
+    height: 700px;
+    max-height: 80vh;
+  }
+}
