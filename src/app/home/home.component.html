@@ -12,16 +12,7 @@
     </div>
 </div>
 
-<div class="row mt-3 mb-3">
-    <p class="display-6 text-center">
-        Located at 1120 S Coast Hwy, Oceanside, CA 92054!
-    </p>
-    <p class="display-6 text-center">
-        We are open everyday from 10am - 7pm
-    </p>
-</div>
-
-<div class="row">
+<div class="row mt-4">
     <div *ngIf="tiles[1].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/womens" (mouseover)="isHover = 1" (mouseout)="isHover = -1">
         <div class="tile-bg-img" [style.background-image]="imgUrlPrefix+tiles[1].img+imgUrlSuffix" [class.darken]="isHover == 1">
           <img [src]="tiles[1].img" width="100%">
@@ -56,3 +47,28 @@
         </div>
     </div>
 </div>
+
+<div class="row mt-4 mb-4">
+  <p class="display-6 text-center">
+    Located at 1120 S Coast Hwy, Oceanside, CA 92054!
+  </p>
+  <p class="display-6 text-center">
+    We are open everyday from 10am - 7pm
+  </p>
+</div>
+
+<!--<mat-grid-list cols="3" rowHeight="1:1" gutterSize="16px">-->
+<!--  <mat-grid-tile *ngFor="let post of instagramPosts">-->
+<!--    <img src="{{post.imageUrl}}" alt="{{post.caption}}">-->
+<!--    <mat-grid-tile-footer>-->
+<!--      {{post.caption}}-->
+<!--    </mat-grid-tile-footer>-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->
+
+
+
+
+
+
+

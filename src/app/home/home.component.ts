@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit{
   imgUrlSuffix = ')';
   tiles = [];
   isHover = -1;
+  instagramPosts = [];
 
   constructor(private firebaseImageService: FirebaseImageService) {
     this.tiles.push(this.newTile('banner.webp'));
@@ -40,10 +41,4 @@ export class HomeComponent implements OnInit{
     }
   }
 
-  mouseEnter(tile) {
-
-  }
-  mouseLeave(tile) {
-
-  }
 }

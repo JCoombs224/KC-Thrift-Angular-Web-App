@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {FirebaseAppModule, initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -26,9 +26,12 @@ import {ModalModule} from "ngx-bootstrap/modal";
 import {ToastrModule} from "ngx-toastr";
 import {CartComponent} from "./layout/nav/cart.component";
 import {CarouselModule} from "ngx-bootstrap/carousel";
-import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {FirebaseImageService} from "./services/firebase-image.service";
-import {AngularFireModule, FIREBASE_OPTIONS} from "@angular/fire/compat";
+import {FIREBASE_OPTIONS} from "@angular/fire/compat";
+import {AboutComponent} from "./pages/about.component";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {FooterComponent} from "./layout/footer.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import {AngularFireModule, FIREBASE_OPTIONS} from "@angular/fire/compat";
     HomeComponent,
     ShopComponent,
     ViewProductModalComponent,
-    CartComponent
+    CartComponent,
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,8 @@ import {AngularFireModule, FIREBASE_OPTIONS} from "@angular/fire/compat";
     GraphQLModule,
     ApolloModule,
     HttpClientModule,
+    FlexLayoutModule,
+    MatGridListModule,
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
     ToastrModule.forRoot(

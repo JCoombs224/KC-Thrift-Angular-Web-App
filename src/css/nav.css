@@ -91,16 +91,19 @@
     color: red;
     /* -webkit-text-stroke: 1.5px black; */
     font-size: 3rem;
-    font-family: AiyariIsland;
+    font-family: AiyariIsland, serif;
     letter-spacing: 0;
     margin-top: -10px;
+}
+.logo-head.blend {
+  mix-blend-mode: exclusion;
 }
 .logo-sub {
     color: white;
     mix-blend-mode: exclusion;
     font-weight: bold;
     font-size: 1.5rem;
-    font-family: Brice;
+    font-family: Brice, serif;
     text-align: center;
     margin-top: -15px;
     padding-right: 8px;
