@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faInstagram, faFacebook, faYelp } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-footer',
@@ -17,4 +18,7 @@ export class FooterComponent implements OnInit {
 
   }
 
+  protected readonly faInstagram = faInstagram;
+  protected readonly faFacebook = faFacebook;
+  protected readonly faYelp = faYelp;
 }

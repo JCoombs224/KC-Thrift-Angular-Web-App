@@ -29,7 +29,9 @@ export class HomeComponent implements OnInit{
     }
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+    (window as any).instgrm.Embeds.process();
+  }
 
   newTile(imgName = '', title = '', text = '', rgb = 'rgb(255,255,255)') {
     return {
