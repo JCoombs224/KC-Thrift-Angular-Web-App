@@ -1,154 +1,170 @@
 @font-face {
-    font-family: AiyariIsland;
-    src: url("/assets/fonts/aiyari-island.otf") format("opentype");
+  font-family: AiyariIsland;
+  src: url("/assets/fonts/aiyari-island.otf") format("opentype");
 }
-@font-face {
-    font-family: AiyariCasual;
-    src: url("/assets/fonts/aiyari-casual.otf") format("opentype");
-}
-@font-face {
-    font-family: Brice;
-    src: url("/assets/fonts/brice.otf") format("opentype");
-}
-@keyframes headerOut {
-    0% {
 
-    }
-    100% {
-        height: 0;
-    }
+@font-face {
+  font-family: AiyariCasual;
+  src: url("/assets/fonts/aiyari-casual.otf") format("opentype");
 }
+
+@font-face {
+  font-family: Brice;
+  src: url("/assets/fonts/brice.otf") format("opentype");
+}
+
+@keyframes headerOut {
+  0% {
+
+  }
+  100% {
+    height: 0;
+  }
+}
+
 @keyframes headerIn {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: 25vw;
-        max-height: 25vh;
-    }
-}
-@keyframes brandIn {
-    100% {
-        margin-left: 0;
-    }
-}
-@keyframes brandOut {
-    100% {
-        margin-left: -350px;
-    }
-}
-.navbar-header {
+  0% {
+    height: 0;
+  }
+  100% {
     height: 25vw;
-    max-height: 200px;
-    overflow: hidden;
-    transition: 0.5s;
-    /* background-color: white; */
-    display: block;
-    background-image: url("/assets/bg2.jpg");
-    filter: contrast(1.2);
-    -webkit-font-smoothing: antialiased;
+    max-height: 25vh;
+  }
 }
+
+@keyframes brandIn {
+  100% {
+    margin-left: 0;
+  }
+}
+
+@keyframes brandOut {
+  100% {
+    margin-left: -350px;
+  }
+}
+
+.navbar-header {
+  height: 25vw;
+  max-height: 200px;
+  overflow: hidden;
+  transition: 0.5s;
+  /* background-color: white; */
+  display: block;
+  /*background-image: url("/assets/bg2.jpg");*/
+  filter: contrast(1.2);
+  -webkit-font-smoothing: antialiased;
+}
+
 .navbar-header .logo-head {
-    font-size: clamp(3rem, 12vw, 7rem) !important;
-    letter-spacing: 0;
-    /* -webkit-text-stroke: 2px black; */
+  font-size: clamp(3rem, 12vw, 7rem) !important;
+  letter-spacing: 0;
+  margin-top: -20px;
+  /* -webkit-text-stroke: 2px black; */
 }
+
 .navbar-header .logo-sub {
-    font-size: clamp(1rem, 6vw, 3rem) !important;
-    margin-top: -15px !important;
+  font-size: clamp(1rem, 6vw, 3rem) !important;
+  margin-top: -15px !important;
 }
 
 
 /* add header out when the screen scrolls down */
 .navbar-header.out {
-    /* animation: headerOut 0.5s  forwards; */
-    height: 0;
+  /* animation: headerOut 0.5s  forwards; */
+  height: 0;
 }
+
 .navbar-brand.in {
-    /* animation: brandIn 0.5s forwards; */
-    margin-left: 0;
+  /* animation: brandIn 0.5s forwards; */
+  margin-left: 0;
 }
 
 .nav-wrapper {
-    height: 60px;
-    width: 100%;
-    background-color: white;
-    position: sticky;
-    position: -webkit-sticky;
-    display: flex;
-    top: 0;
-    left: 0;
-    z-index: 100;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  position: sticky;
+  position: -webkit-sticky;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .logo {
-    text-decoration: none;
-    /* -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility; */
+  text-decoration: none;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility; */
 }
+
 .logo-head {
-    color: red;
-    /* -webkit-text-stroke: 1.5px black; */
-    font-size: 3rem;
-    font-family: AiyariIsland, serif;
-    letter-spacing: 0;
-    margin-top: -10px;
+  color: red;
+  /* -webkit-text-stroke: 1.5px black; */
+  font-size: 3rem;
+  font-family: AiyariIsland, serif;
+  letter-spacing: 0;
+  margin-top: -10px;
 }
+
 .logo-head.blend {
   mix-blend-mode: exclusion;
 }
+
 .logo-sub {
-    color: white;
-    mix-blend-mode: exclusion;
-    font-weight: bold;
-    font-size: 1.5rem;
-    font-family: Brice, serif;
-    text-align: center;
-    margin-top: -15px;
-    padding-right: 8px;
-    /* letter-spacing: 3px; */
+  color: black;
+  /*mix-blend-mode: exclusion;*/
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: Brice, serif;
+  text-align: center;
+  margin-top: -15px;
+  padding-right: 8px;
+  /* letter-spacing: 3px; */
 }
 
 .nav-spacing {
-    /* margin-top: 60px; */
+  /* margin-top: 60px; */
 }
 
 .navbar-brand {
-    margin-left: -300px;
-    overflow: hidden;
-    padding-left: 8px;
-    transition: 0.5s;
+  margin-left: -300px;
+  overflow: hidden;
+  padding-left: 8px;
+  transition: 0.5s;
 }
 
 .logo-head.full {
-    display: block;
+  display: block;
 }
+
 .logo-head.mobile {
-    display: none;
+  display: none;
 }
 
 .nav.main {
-    padding-left: 20px !important;
-    font-size: 1rem;
-    /* font-family: AiyariCasual; */
-    align-items: center;
-    font-family: Poppins, "Helvetica Neue", sans-serif;
-    /* letter-spacing: 2px; */
-    /* padding-right: 10% !important; */
+  padding-left: 20px !important;
+  font-size: 1rem;
+  /* font-family: AiyariCasual; */
+  align-items: center;
+  font-family: Poppins, "Helvetica Neue", sans-serif;
+  /* letter-spacing: 2px; */
+  /* padding-right: 10% !important; */
 }
 
 .nav-link {
-    transition: 0.2s;
+  transition: 0.2s;
 }
 
 .nav-link.active {
-    color: red;
-    text-decoration: underline;
-    letter-spacing: 1px;
+  color: red;
+  text-decoration: underline;
+  letter-spacing: 1px;
 }
+
 .nav-link:hover {
-    /* letter-spacing: 1px; */
+  /* letter-spacing: 1px; */
 }
 
 .mobile-menu {
@@ -174,9 +190,11 @@
   width: 10px;
   background-image: url("/assets/bg2.jpg");
 }
+
 .nav-menu-gutter.left {
   left: 0;
 }
+
 .nav-menu-gutter.right {
   right: 0;
 }
@@ -192,22 +210,25 @@
 }
 
 @media only screen and (max-width: 800px) {
-    .logo-head.full {
-        /* letter-spacing: 1px; */
-        font-size: 2rem;
-        margin-top: 0;
-        align-items: center;
-    }
-    /* .logo-head.mobile {
-        display: block;
-    } */
-    .nav.main {
-        display: none;
-    }
-    .menu-button {
+  .logo-head.full {
+    /* letter-spacing: 1px; */
+    font-size: 2rem;
+    margin-top: 0;
+    align-items: center;
+  }
+
+  /* .logo-head.mobile {
       display: block;
-    }
-    .mobile-menu {
-      display: block;
-    }
+  } */
+  .nav.main {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
 }
