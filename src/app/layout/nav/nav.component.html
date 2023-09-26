@@ -8,50 +8,64 @@
       <div class="col bg-stripes-fade-left"></div>
     </div>
 </div>
-<div class="nav-wrapper justify-content-between bg-light" id="navbar">
-  <div class="d-flex">
-    <div class="navbar-brand" id="navBrand">
+<div class="nav-wrapper-outer" id="navbar">
+  <div class="nav-wrapper-inner justify-content-between bg-light">
+    <div class="d-flex">
+      <div class="navbar-brand" id="navBrand">
         <a class="logo" routerLink="/">
-            <div class="logo-head full">KIT N CABOODLE</div>
+          <div class="logo-head full">KIT N CABOODLE</div>
           <!-- <div class="logo-head mobile">KC</div> -->
         </a>
+      </div>
+      <ul class="nav main">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop/all" routerLinkActive="active">Shop All</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop/womens" routerLinkActive="active">Shop Womens</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop/mens" routerLinkActive="active">Shop Mens</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="shop/kids/" routerLinkActive="active">Shop Kids</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="shop/accessories/" routerLinkActive="active">Shop Accessories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop/goods" routerLinkActive="active">Shop Goods</a>
+        </li>
+      </ul>
     </div>
-    <ul class="nav main">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
-        </li>
-       <li class="nav-item">
-            <a class="nav-link" routerLink="/shop/all" routerLinkActive="active">Shop All</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/shop/womens" routerLinkActive="active">Shop Womens</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/shop/mens" routerLinkActive="active">Shop Mens</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="shop/kids/" routerLinkActive="active">Shop Kids</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="shop/accessories/" routerLinkActive="active">Shop Accessories</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/shop/goods" routerLinkActive="active">Shop Goods</a>
-        </li>
-    </ul>
-  </div>
-  <div class="d-flex align-items-center pe-0 pe-md-3">
-    <div class="position-relative">
+    <div class="d-flex align-items-center pe-0 pe-md-3">
+      <div class="position-relative">
         <button class="btn btn-success rounded-5" title="View Cart" style="padding-top: 10px" (click)="openCart()" alt="View cart button"><fa-icon [icon]="faShoppingCart" style="font-size: 1.2rem;"></fa-icon></button>
         <span *ngIf="cart.getCartCount()" class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 90%; left: 95%">
           {{cart.getCartCount()}}
         </span>
-    </div>
-    <div class="menu-button">
+      </div>
+      <div class="menu-button">
         <button class="btn btn-link" (click)="toggleMenu()"><fa-icon [icon]="faBars"></fa-icon></button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showDialog" class="position-sticky">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong><fa-icon [icon]="faScrewdriverWrench"></fa-icon> Pardon our dust!</strong> We are currently working on rolling out our new and improved website. Some functions may not work as expected during this time.
+          Thank you for your patience.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeDialog()"></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="mobile-menu" [class.open]="menuOpen">
   <div class="d-flex justify-content-center h-100">
     <div class="nav-menu-gutter left"></div>

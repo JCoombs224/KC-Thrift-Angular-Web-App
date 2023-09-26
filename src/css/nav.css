@@ -80,16 +80,19 @@
   margin-left: 0;
 }
 
-.nav-wrapper {
+.nav-wrapper-outer {
   height: 60px;
   width: 100%;
-  background-color: white;
   position: sticky;
   position: -webkit-sticky;
-  display: flex;
   top: 0;
   left: 0;
   z-index: 100;
+}
+
+.nav-wrapper-inner {
+  display: flex;
+  background-color: white;
 }
 
 .logo {

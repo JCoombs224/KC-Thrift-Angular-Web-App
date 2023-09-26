@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {faBars, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faHardHat, faScrewdriverWrench, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import {CartService} from "../../services/cart.service";
 
 @Component({
@@ -36,6 +36,7 @@ export class NavComponent implements OnInit {
   showHeader = false;
   headerScrolled = false;
   menuOpen = false;
+  showDialog = true;
 
   constructor(public router: Router,
               public cart: CartService) { }
@@ -46,6 +47,11 @@ export class NavComponent implements OnInit {
     }
     else {
       this.showHeader = false;
+    }
+
+    const showDialog = sessionStorage.getItem('showDialog');
+    if(showDialog == 'false') {
+      this.showDialog = false;
     }
 
     this.router.events.subscribe((val) => {
@@ -107,6 +113,13 @@ export class NavComponent implements OnInit {
     }
   }
 
+  // TODO: Remove this function once website is done
+  closeDialog() {
+    this.showDialog = false;
+    sessionStorage.setItem('showDialog', 'false');
+  }
+
   protected readonly faShoppingCart = faShoppingCart;
   protected readonly faBars = faBars;
+  protected readonly faScrewdriverWrench = faScrewdriverWrench;
 }
