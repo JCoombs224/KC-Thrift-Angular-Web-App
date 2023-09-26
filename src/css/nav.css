@@ -212,12 +212,45 @@
   display: none;
 }
 
+.bg-stripes-fade-left {
+  background-image: url("/assets/bg2.jpg"),
+  linear-gradient(to right, white, transparent);
+  background-image: url("/assets/bg2.jpg"),
+  -moz-linear-gradient(to right, white, transparent);
+  background-image: url("/assets/bg2.jpg"),
+  -o-linear-gradient(to right, white, transparent);
+  background-image: url("/assets/bg2.jpg"),
+  -webkit-linear-gradient(to right, white, transparent);
+
+  background-blend-mode: overlay;
+}
+.bg-stripes-fade-right {
+  background-image: url("/assets/bg2.jpg"),
+  linear-gradient(to left, white, transparent);
+  background-image: url("/assets/bg2.jpg"),
+  -moz-linear-gradient(to left, white, transparent);
+  background-image: url("/assets/bg2.jpg"),
+  -o-linear-gradient(to left, white, transparent);
+  background-image: url("/assets/bg2.jpg"),
+  -webkit-linear-gradient(to left, white, transparent);
+
+  background-blend-mode: overlay;
+}
+
 @media only screen and (max-width: 800px) {
   .logo-head.full {
     /* letter-spacing: 1px; */
     font-size: 2rem;
     margin-top: 0;
     align-items: center;
+  }
+
+  .logo-head {
+    margin-top: 0 !important;
+  }
+
+  .bg-stripes-fade-right, .bg-stripes-fade-left {
+    background: white;
   }
 
   /* .logo-head.mobile {

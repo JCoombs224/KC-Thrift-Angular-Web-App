@@ -81,33 +81,6 @@
   object-fit: contain!important;
 }
 
-.bg-stripes-fade-left {
-  background-image: url("/assets/bg2.jpg"),
-    linear-gradient(left, white, transparent);
-  background-image: url("/assets/bg2.jpg"),
-  -moz-linear-gradient(left, white, transparent);
-  background-image: url("/assets/bg2.jpg"),
-  -o-linear-gradient(left, white, transparent);
-  background-image: url("/assets/bg2.jpg"),
-  -webkit-linear-gradient(left, white, transparent);
-
-  background-blend-mode: overlay;
-}
-.bg-stripes-fade-right {
-  background-image: url("/assets/bg2.jpg"),
-    linear-gradient(right, white, transparent);
-  background-image: url("/assets/bg2.jpg"),
-  -moz-linear-gradient(right, white, transparent);
-  background-image: url("/assets/bg2.jpg"),
-  -o-linear-gradient(right, white, transparent);
-  background-image: url("/assets/bg2.jpg"),
-  -webkit-linear-gradient(right, white, transparent);
-
-  background-blend-mode: overlay;
-}
-
-
-
 @media screen and (min-width: 768px) {
   .carousel-item{
     height: 700px;
