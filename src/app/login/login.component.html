@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row mt-2 justify-content-center">
+    <div class="col-6 col-md-4">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="row mb-3">
+          <div class="col">
+            <label class="required">Username</label>
+            <input type="text" class="form-control" formControlName="username" >
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <label class="required">Password</label>
+            <input type="password" class="form-control" formControlName="password" >
+          </div>
+        </div>
+        <div class="row mb-3">
+          <input type="submit" class="btn btn-success col-sm-10 offset-sm-1" value="Login">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

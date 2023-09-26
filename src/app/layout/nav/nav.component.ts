@@ -3,6 +3,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {faBars, faHardHat, faScrewdriverWrench, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import {CartService} from "../../services/cart.service";
+import {AuthService} from "../../services/auth.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-nav',
@@ -37,9 +39,11 @@ export class NavComponent implements OnInit {
   headerScrolled = false;
   menuOpen = false;
   showDialog = true;
+  isLoggedIn: Observable<boolean> = this.authService.user$;
 
   constructor(public router: Router,
-              public cart: CartService) { }
+              public cart: CartService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     if(this.router.url == '/' || this.router.url == '/#/') {
@@ -71,6 +75,10 @@ export class NavComponent implements OnInit {
       }
       this.menuOpen = false;
     });
+  }
+
+  logout() {
+    this.authService.LogOut();
   }
 
   @HostListener('window:scroll', ['$event'])

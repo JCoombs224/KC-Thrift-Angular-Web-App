@@ -32,6 +32,9 @@ import {AboutComponent} from "./pages/about.component";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {FooterComponent} from "./layout/footer.component";
+import {LoginComponent} from "./login/login.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import {FooterComponent} from "./layout/footer.component";
     ViewProductModalComponent,
     CartComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -71,9 +75,10 @@ import {FooterComponent} from "./layout/footer.component";
         closeButton: true,
       }
     ),
+    ReactiveFormsModule,
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService, FirebaseImageService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+    ScreenTrackingService,UserTrackingService, FirebaseImageService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }, AuthService
   ],
   bootstrap: [AppComponent]
 })

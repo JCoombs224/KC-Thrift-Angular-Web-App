@@ -53,6 +53,7 @@
       </div>
     </div>
   </div>
+  <div *ngIf="isLoggedIn | async" class="bg-dark text-light ps-1"><small>Logged in as admin (<a routerLink="/" (click)="logout()">Logout</a>)</small></div>
   <div *ngIf="showDialog" class="position-sticky">
     <div class="row">
       <div class="col-12">
