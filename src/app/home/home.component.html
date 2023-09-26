@@ -1,5 +1,5 @@
 <div class="row">
-    <div *ngIf="tiles[0].img" [@fadeIn] class="col home-tile home-tile-lg" (mouseover)="isHover = 0" (mouseout)="isHover = -1">
+    <div *ngIf="tiles[0].img" [@fadeIn] class="col home-tile home-tile-lg" (mouseover)="isHover = 0" (mouseleave)="isHover = -1">
         <div class="tile-bg-img banner" [style.background-image]="imgUrlPrefix+tiles[0].img+imgUrlSuffix" >
           <img [src]="tiles[0].img" class="img-fluid">
         </div><!--[class.darken]="isHover == 0"-->
@@ -9,42 +9,46 @@
             {{tiles[0].text}}
             </p>
         </div>
+      <button *ngIf="(isLoggedIn | async) && isHover == 0" class="btn btn-light btn-image-upload" (click)="onUploadButtonClick(0)"><fa-icon [icon]="faEdit"></fa-icon></button>
     </div>
 </div>
 
 <div class="row mt-4">
-    <div *ngIf="tiles[1].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/womens" (mouseover)="isHover = 1" (mouseout)="isHover = -1">
+    <div *ngIf="tiles[1].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" (mouseover)="isHover = 1" (mouseleave)="isHover = -1">
         <div class="tile-bg-img" [style.background-image]="imgUrlPrefix+tiles[1].img+imgUrlSuffix" [class.darken]="isHover == 1">
           <img [src]="tiles[1].img" width="100%">
         </div>
-        <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[1].rgb">
+        <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[1].rgb" routerLink="shop/womens">
             <h2 class="display-1" *ngIf="tiles[1].title">{{tiles[1].title}}</h2>
             <p *ngIf="tiles[1].text">
             {{tiles[1].text}}
             </p>
         </div>
+      <button *ngIf="(isLoggedIn | async) && isHover == 1" class="btn btn-light btn-image-upload" (click)="onUploadButtonClick(1)"><fa-icon [icon]="faEdit"></fa-icon></button>
     </div>
-    <div *ngIf="tiles[2].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/mens" (mouseover)="isHover = 2" (mouseout)="isHover = -1">
+    <div *ngIf="tiles[2].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" (mouseover)="isHover = 2" (mouseleave)="isHover = -1">
         <div class="tile-bg-img" [style.background-image]="imgUrlPrefix+tiles[2].img+imgUrlSuffix" [class.darken]="isHover == 2">
           <img [src]="tiles[2].img" width="100%">
         </div>
-        <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[2].rgb">
+        <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[2].rgb" routerLink="shop/mens">
             <h2 class="display-1" *ngIf="tiles[2].title">{{tiles[2].title}}</h2>
             <p *ngIf="tiles[2].text">
             {{tiles[2].text}}
             </p>
         </div>
+      <button *ngIf="(isLoggedIn | async) && isHover == 2" class="btn btn-light btn-image-upload" (click)="onUploadButtonClick(2)"><fa-icon [icon]="faEdit"></fa-icon></button>
     </div>
-    <div *ngIf="tiles[3].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" routerLink="shop/accessories" (mouseover)="isHover = 3" (mouseout)="isHover = -1">
+    <div *ngIf="tiles[3].img" [@fadeIn] class="col-12 col-md-4 home-tile home-tile-sm" (mouseover)="isHover = 3" (mouseleave)="isHover = -1">
         <div class="tile-bg-img" [style.background-image]="imgUrlPrefix+tiles[3].img+imgUrlSuffix" [class.darken]="isHover == 3">
           <img [src]="tiles[3].img" width="100%">
         </div>
-        <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[3].rgb">
+        <div class="tile-content d-flex flex-column justify-content-center" [style.color]="tiles[3].rgb" routerLink="shop/accessories">
             <h3 class="display-1" *ngIf="tiles[3].title">{{tiles[3].title}}</h3>
             <p *ngIf="tiles[3].text">
             {{tiles[3].text}}
             </p>
         </div>
+      <button *ngIf="(isLoggedIn | async) && isHover == 3" class="btn btn-light btn-image-upload" (click)="onUploadButtonClick(3)"><fa-icon [icon]="faEdit"></fa-icon></button>
     </div>
 </div>
 

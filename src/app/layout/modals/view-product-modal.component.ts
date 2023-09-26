@@ -42,7 +42,6 @@ export class ViewProductModalComponent implements OnInit {
   }
 
   toggleFullscreen(url?) {
-    console.log(true);
     if(url) {
       this.fullScreenUrl = url;
       this.isFullscreen = true;

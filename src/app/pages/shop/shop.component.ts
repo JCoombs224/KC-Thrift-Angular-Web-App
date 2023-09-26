@@ -35,7 +35,7 @@ export class ShopComponent implements OnInit {
     const productsCache = sessionStorage.getItem('products');
     if (productsCache)
       this.products = JSON.parse(productsCache);
-    console.log("Saved Products", this.products);
+    // console.log("Saved Products", this.products);
 
     this.categoryChange();
   }
@@ -45,8 +45,8 @@ export class ShopComponent implements OnInit {
       let nodes = data as any;
       nodes = nodes.products.edges;
       this.addProducts(nodes);
-      console.log("Nodes", nodes);
-      console.log("Products", this.products);
+      // console.log("Nodes", nodes);
+      // console.log("Products", this.products);
     });
   }
 
@@ -57,7 +57,7 @@ export class ShopComponent implements OnInit {
     }
     this.shopifyService.getCollection(collection).subscribe(({data, loading}) => {
       let nodes = data as any;
-      console.log('data', nodes);
+      // console.log('data', nodes);
       if(nodes.collectionByHandle == null) {
         this.products = [];
         this.toastr.error("Collection not found");
@@ -65,7 +65,7 @@ export class ShopComponent implements OnInit {
       }
       nodes = nodes.collectionByHandle.products.edges;
       this.addProducts(nodes);
-      console.log("Products parsed", this.products);
+      // console.log("Products parsed", this.products);
     });
   }
 

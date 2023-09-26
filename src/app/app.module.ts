@@ -35,6 +35,7 @@ import {FooterComponent} from "./layout/footer.component";
 import {LoginComponent} from "./login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
+import {UploadImgModalComponent} from "./layout/modals/upload-img-modal.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {AuthService} from "./services/auth.service";
     CartComponent,
     AboutComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    UploadImgModalComponent
   ],
   imports: [
     BrowserModule,

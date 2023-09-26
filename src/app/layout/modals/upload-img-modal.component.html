@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <h5 class="modal-title">Change Image</h5>
+  <button type="button" class="btn-close close" aria-label="Close" (click)="cancel()"></button>
+</div>
+<div class="modal-body">
+  <div class="row mb-3">
+    <div class="col">
+      <label>Upload Image</label>
+      <input type="file" class="form-control" accept=".jpg, .jpeg, .png, .webp" (change)="onFileSelected($event)" />
+    </div>
+  </div>
+  <div class="row mb-3" *ngIf="imgData">
+    <div class="col">
+      <label>Preview</label>
+      <img [src]="imgData" class="img-fluid" alt="Uploaded image" />
+    </div>
+  </div>
+</div>
+<div class="modal-footer d-flex justify-content-end">
+  <button class="btn btn-secondary" (click)="cancel()">Cancel</button>
+  <button class="btn btn-success" [disabled]="!imgData" (click)="upload()">Upload</button>
+</div>

@@ -1,51 +1,62 @@
 .home-tile {
-    position: relative;
-    display: flex;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .home-tile-lg {
-    /*height: 95vh;*/
+  /*height: 95vh;*/
 }
 
 .home-tile-sm {
-    /*height: 30vw;*/
-    cursor: pointer;
+  /*height: 30vw;*/
+  cursor: pointer;
   /*height: 600px;*/
 }
 
 .darken {
-    transition: 0.5s;
-    filter: brightness(75%);
+  transition: 0.5s;
+  filter: brightness(75%);
 }
 
 .tile-bg-img {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    /*height: 100%;*/
-    width: 100%;
-    z-index: 0;
-    transition: 0.5s;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /*height: 100%;*/
+  width: 100%;
+  z-index: 0;
+  transition: 0.5s;
 }
-.tile-bg-img img{
-    visibility: hidden;
+
+.tile-bg-img img {
+  visibility: hidden;
 }
 
 .tile-content {
-    position: absolute;
-    padding-top: 15%;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    color: white;
-    transition: 0.5s;
+  position: absolute;
+  padding-top: 15%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  transition: 0.5s;
+}
+
+.btn-image-upload {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  /*z-index: 1;*/
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
 }
 
 /* .home-tile img{
@@ -54,13 +65,12 @@
 } */
 
 @media screen and (max-width: 768px) {
-    /*.home-tile-lg {*/
-    /*    height: 80vh;*/
-    /*}*/
-
-    /*.home-tile-sm {*/
-    /*    height: 80vh;*/
-    /*}*/
+  /*.home-tile-lg {*/
+  /*    height: 80vh;*/
+  /*}*/
+  /*.home-tile-sm {*/
+  /*    height: 80vh;*/
+  /*}*/
   /*.title-bg-img.banner {*/
   /*  background-position: center;*/
   /*}*/
