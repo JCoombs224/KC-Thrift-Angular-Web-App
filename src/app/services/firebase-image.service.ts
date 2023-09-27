@@ -7,7 +7,7 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
 })
 export class FirebaseImageService {
 
-  readonly IMAGE_URL_PREFIX = 'gs://kc-thrift/';
+  readonly IMAGE_URL_PREFIX = 'gs://kc-thrift/uploads/';
   readonly IMAGE_PATH_PREFIX = '/kc-thrift/';
 
   constructor(private storage: AngularFireStorage) {}
