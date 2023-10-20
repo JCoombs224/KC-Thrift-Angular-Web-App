@@ -214,25 +214,25 @@
 
 .bg-stripes-fade-left {
   background-image: url("/assets/bg2.jpg"),
-  linear-gradient(to right, white, transparent);
+  linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
   background-image: url("/assets/bg2.jpg"),
-  -moz-linear-gradient(to right, white, transparent);
+  -moz-linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
   background-image: url("/assets/bg2.jpg"),
-  -o-linear-gradient(to right, white, transparent);
+  -o-linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
   background-image: url("/assets/bg2.jpg"),
-  -webkit-linear-gradient(to right, white, transparent);
+  -webkit-linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
 
   background-blend-mode: overlay;
 }
 .bg-stripes-fade-right {
   background-image: url("/assets/bg2.jpg"),
-  linear-gradient(to left, white, transparent);
+  linear-gradient(to left, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
   background-image: url("/assets/bg2.jpg"),
-  -moz-linear-gradient(to left, white, transparent);
+  -moz-linear-gradient(to left, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
   background-image: url("/assets/bg2.jpg"),
-  -o-linear-gradient(to left, white, transparent);
+  -o-linear-gradient(to left, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
   background-image: url("/assets/bg2.jpg"),
-  -webkit-linear-gradient(to left, white, transparent);
+  -webkit-linear-gradient(to left, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
 
   background-blend-mode: overlay;
 }
