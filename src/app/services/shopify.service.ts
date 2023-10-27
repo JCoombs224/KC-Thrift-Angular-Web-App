@@ -13,13 +13,13 @@ export class ShopifyService {
   getAllProducts() {
     return this.apollo.query({
       query: gql`{
-        products (first: 250) {
+        products (first: 250, sortKey: CREATED_AT, reverse: true) {
           edges {
             node {
               id
               title
               createdAt
-              description
+              descriptionHtml
               collections(first: 10) {
                 edges {
                   node {
@@ -77,7 +77,7 @@ export class ShopifyService {
                 id
                 title
                 createdAt
-                description
+                descriptionHtml
                 collections(first: 10) {
                   edges {
                     node {

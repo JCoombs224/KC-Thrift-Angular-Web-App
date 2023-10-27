@@ -158,11 +158,22 @@
 
 .nav-link {
   transition: 0.2s;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.nav-link.nav-link-light {
+  color: white;
+}
+
+.nav-link-light:hover {
+  color: lightgrey;
 }
 
 .nav-link.active {
   color: red;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   letter-spacing: 1px;
 }
 
@@ -214,7 +225,7 @@
 
 .bg-stripes-fade-left {
   background-image: url("/assets/bg2.jpg"),
-  linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
+  linear-gradient(to right, white, transparent);
   background-image: url("/assets/bg2.jpg"),
   -moz-linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
   background-image: url("/assets/bg2.jpg"),
@@ -222,11 +233,13 @@
   background-image: url("/assets/bg2.jpg"),
   -webkit-linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
 
+  background-position: left;
+  background-size: 110%;
   background-blend-mode: overlay;
 }
 .bg-stripes-fade-right {
   background-image: url("/assets/bg2.jpg"),
-  linear-gradient(to left, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
+  linear-gradient(to left, white, transparent);
   background-image: url("/assets/bg2.jpg"),
   -moz-linear-gradient(to left, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
   background-image: url("/assets/bg2.jpg"),
@@ -234,6 +247,8 @@
   background-image: url("/assets/bg2.jpg"),
   -webkit-linear-gradient(to left, white 0%, rgba(255, 255, 255, 0.7) 70%, transparent);
 
+  background-position: right;
+  background-size: 110%;
   background-blend-mode: overlay;
 }
 

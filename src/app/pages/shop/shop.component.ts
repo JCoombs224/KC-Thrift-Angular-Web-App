@@ -71,7 +71,7 @@ export class ShopComponent implements OnInit {
 
     this.shopifyService.getCollection(collection).subscribe(({data, loading}) => {
       let nodes = data as any;
-      // console.log('data', nodes);
+      console.log('data', nodes);
       if(nodes.collectionByHandle == null) {
         this.products = [];
         // this.toastr.error("Collection not found");
@@ -101,7 +101,7 @@ export class ShopComponent implements OnInit {
         id: node.node.id,
         variant_id: node.node.variants.edges[0].node.id,
         title: node.node.title,
-        description: node.node.description,
+        description: node.node.descriptionHtml,
         createdAt: node.node.createdAt,
         image: node.node.featuredImage.thumbnail,
         image_full_res: node.node.featuredImage.url,

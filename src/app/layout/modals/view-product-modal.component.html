@@ -10,7 +10,7 @@
     </button>
   </div>
   <div class="row">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
       <carousel>
         <!-- Loop through images of each product -->
         <slide *ngFor="let image of product.images" class="carousel-item bg-dark">
@@ -21,8 +21,9 @@
     <div class="col mt-3 mt-lg-0 d-flex flex-column justify-content-center">
       <div class="text-center">
         <h1 class="display-5">{{product.title}}</h1>
-        <p>
-          {{product.description}}
+      <!--        TODO: Sanitize html input -->
+        <p [innerHTML]="product.description">
+<!--          {{product.description}}-->
         </p>
         <h4>{{product.size}}</h4>
         <h3 class="display-6 p-3">
