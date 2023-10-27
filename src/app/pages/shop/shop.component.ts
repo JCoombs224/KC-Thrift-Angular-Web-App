@@ -18,6 +18,8 @@ export class ShopComponent implements OnInit {
 
   modalRef: BsModalRef;
   category = '';
+  subCategory = '';
+  showFilters = false;
   products = [];
   onlineImg = true;
 
@@ -30,6 +32,7 @@ export class ShopComponent implements OnInit {
     // Subscribe to the route params to get the category
     this.route.params.subscribe(params => {
       this.category = params['category'];
+      this.subCategory = params['subcategory'];
       this.categoryChange();
     });
     const productsCache = sessionStorage.getItem('products');
@@ -55,12 +58,24 @@ export class ShopComponent implements OnInit {
     if(collection == 'mens') {
       collection = 'mens-1';
     }
+    if(collection == 'womens') {
+      this.showFilters = true;
+    } else {
+      this.showFilters = false;
+    }
+    if(this.subCategory && this.category == 'womens') {
+      collection = collection + '-' + this.subCategory;
+    }
+
+    // console.log('collection', collection);
+
     this.shopifyService.getCollection(collection).subscribe(({data, loading}) => {
       let nodes = data as any;
       // console.log('data', nodes);
       if(nodes.collectionByHandle == null) {
         this.products = [];
-        this.toastr.error("Collection not found");
+        // this.toastr.error("Collection not found");
+        console.log("Collection not found");
         return;
       }
       nodes = nodes.collectionByHandle.products.edges;
