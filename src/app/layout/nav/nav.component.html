@@ -76,28 +76,22 @@
         <div style="color: black; margin-top: -12px; font-size: 1.4rem">Thrift Store</div>
       </div>
       <li class="nav-item">
-        <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        <a class="nav-link" routerLink="/shop/all" routerLinkActive="active">Vintage</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/shop/all" routerLinkActive="active">Shop All</a>
+        <a class="nav-link" routerLink="/shop/womens" routerLinkActive="active">Womens</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/shop/womens" routerLinkActive="active">Shop Womens</a>
+        <a class="nav-link" routerLink="/shop/mens" routerLinkActive="active">Mens</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/shop/mens" routerLinkActive="active">Shop Mens</a>
+        <a class="nav-link" routerLink="shop/accessories/" routerLinkActive="active">Accessories</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="shop/kids/" routerLinkActive="active">Shop Kids</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="shop/accessories/" routerLinkActive="active">Shop Accessories</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/shop/goods" routerLinkActive="active">Shop Goods</a>
+        <a class="nav-link" routerLink="/about" routerLinkActive="active">Info</a>
       </li>
     </ul>
     <div class="nav-menu-gutter right"></div>

@@ -30,12 +30,11 @@ export class HomeComponent implements OnInit{
               private modalService: BsModalService,
               private toastr: ToastrService) {
 
-    console.log("Screen Width", this.screenWidth);
     if(this.screenWidth < 600) {
       this.tiles.push(this.newTile('banner_600x600.webp'));
-      this.tiles.push(this.newTile('womens_200x200.webp'));
-      this.tiles.push(this.newTile('mens_200x200.webp'));
-      this.tiles.push(this.newTile('accessories_200x200.webp'));
+      this.tiles.push(this.newTile('womens_400x400.webp'));
+      this.tiles.push(this.newTile('mens_400x400.webp'));
+      this.tiles.push(this.newTile('accessories_400x400.webp'));
     }
     this.tiles.push(this.newTile('banner.webp'));
     this.tiles.push(this.newTile('womens_600x600.webp'));
