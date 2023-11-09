@@ -6,3 +6,31 @@
 .shop-card:hover {
   transform: scale(1.02)
 }
+
+.item-container {
+  position: relative;
+}
+
+.in-cart-text {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the text */
+  color: white; /* Text color */
+  font-size: 24px; /* Text size */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  border-radius: 5px; /* Rounded corners for the background */
+}
+
+.in-cart-overlay {
+  filter: brightness(0.4);
+  transition: 0.8s;
+}
+
+.in-cart {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.4s;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

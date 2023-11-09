@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ShopifyService } from 'src/app/services/shopify.service';
 import {BsModalRef, BsModalService, ModalOptions} from "ngx-bootstrap/modal";
 import {ViewProductModalComponent} from "../../layout/modals/view-product-modal.component";
-import {ToastrService} from "ngx-toastr";
 import {fadeIn} from "../../animations/fade-in.animation";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-shop',
@@ -25,8 +25,8 @@ export class ShopComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private shopifyService: ShopifyService,
-              private modalService: BsModalService,
-              private toastr: ToastrService) { }
+              private cartService: CartService,
+              private modalService: BsModalService) { }
 
   ngOnInit(): void {
     // Subscribe to the route params to get the category
@@ -128,5 +128,8 @@ export class ShopComponent implements OnInit {
     };
     this.modalRef = this.modalService.show(ViewProductModalComponent, initialState as ModalOptions);
     this.modalRef.content.product = product;
+  }
+  isInCart(product) {
+    return this.cartService.inCart(product);
   }
 }

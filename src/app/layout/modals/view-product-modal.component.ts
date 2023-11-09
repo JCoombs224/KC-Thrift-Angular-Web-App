@@ -37,7 +37,7 @@ export class ViewProductModalComponent implements OnInit {
 
   public removeFromCart() {
     this.cart.removeFromCart(this.product);
-    this.toastr.success("Product removed from cart");
+    this.toastr.error("Product removed from cart");
     this.bsModalRef.hide();
   }
 
