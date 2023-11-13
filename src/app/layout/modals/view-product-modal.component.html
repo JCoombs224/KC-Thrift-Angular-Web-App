@@ -4,7 +4,7 @@
   <small class="text-light bg-black">Click/Tap anywhere on image to close.</small>
 </div>
 <div class="modal-body">
-  <div class="text-end">
+  <div class="text-end mb-2">
     <button type="button" class="btn-close close" aria-label="Close" (click)="cancel()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
@@ -13,7 +13,7 @@
     <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
       <carousel>
         <!-- Loop through images of each product -->
-        <slide *ngFor="let image of product.images" class="carousel-item bg-dark">
+        <slide *ngFor="let image of product.images" class="carousel-item bg-transparent">
           <img src="{{ image.node.largerImage }}" (click)="toggleFullscreen(image.node.full_res)" class="carousel-img cursor-pointer" alt="Product Image">
         </slide>
       </carousel>

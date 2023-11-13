@@ -22,6 +22,7 @@ export class ShopComponent implements OnInit {
   showFilters = false;
   products = [];
   onlineImg = true;
+  loadingProducts = true;
 
   constructor(private route: ActivatedRoute,
               private shopifyService: ShopifyService,
@@ -36,20 +37,27 @@ export class ShopComponent implements OnInit {
       this.categoryChange();
     });
     const productsCache = sessionStorage.getItem('products');
-    if (productsCache)
+    if (productsCache) {
       this.products = JSON.parse(productsCache);
+      this.loadingProducts = false;
+    }
     // console.log("Saved Products", this.products);
 
     this.categoryChange();
   }
 
   getProducts() {
+    this.loadingProducts = true;
     this.shopifyService.getAllProducts().subscribe(({data, loading}) => {
+      this.loadingProducts = false;
       let nodes = data as any;
       nodes = nodes.products.edges;
       this.addProducts(nodes);
       // console.log("Nodes", nodes);
       // console.log("Products", this.products);
+    },(e) => {
+      console.log(e);
+      this.loadingProducts = false;
     });
   }
 
@@ -68,10 +76,11 @@ export class ShopComponent implements OnInit {
     }
 
     // console.log('collection', collection);
-
+    this.loadingProducts = true;
     this.shopifyService.getCollection(collection).subscribe(({data, loading}) => {
+      this.loadingProducts = false;
       let nodes = data as any;
-      console.log('data', nodes);
+      // console.log('data', nodes);
       if(nodes.collectionByHandle == null) {
         this.products = [];
         // this.toastr.error("Collection not found");
@@ -81,6 +90,9 @@ export class ShopComponent implements OnInit {
       nodes = nodes.collectionByHandle.products.edges;
       this.addProducts(nodes);
       // console.log("Products parsed", this.products);
+    },(e) => {
+      console.log(e);
+      this.loadingProducts = false;
     });
   }
 

@@ -53,7 +53,7 @@ export class NavComponent implements OnInit {
       this.showHeader = false;
     }
 
-    const showDialog = sessionStorage.getItem('showDialog');
+    const showDialog = localStorage.getItem('showDialog');
     if(showDialog == 'false') {
       this.showDialog = false;
     }
@@ -124,7 +124,7 @@ export class NavComponent implements OnInit {
   // TODO: Remove this function once website is done
   closeDialog() {
     this.showDialog = false;
-    sessionStorage.setItem('showDialog', 'false');
+    localStorage.setItem('showDialog', 'false');
   }
 
   protected readonly faShoppingCart = faShoppingCart;
