@@ -48,7 +48,7 @@ export class CartComponent {
   checkout() {
     this.shopifyService.checkoutCreate(this.cart.cart).subscribe(({data, loading}) => {
       const c = data as any;
-      window.open(c.checkoutCreate.checkout.webUrl);
+      window.location.replace(c.checkoutCreate.checkout.webUrl);
     });
   }
 
