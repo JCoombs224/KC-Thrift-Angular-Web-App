@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {fadeIn} from "../animations/fade-in.animation";
-import {faBagShopping, faClock, faPhone, faTruck} from "@fortawesome/free-solid-svg-icons";
+import {faBagShopping, faClock, faPhone, faShirt, faTruck} from "@fortawesome/free-solid-svg-icons";
 import {faInstagram} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
@@ -20,4 +20,5 @@ export class AboutComponent implements OnInit{
   protected readonly faBagShopping = faBagShopping;
   protected readonly faTruck = faTruck;
   protected readonly faInstagram = faInstagram;
+  protected readonly faShirt = faShirt;
 }

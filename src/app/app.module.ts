@@ -36,6 +36,7 @@ import {LoginComponent} from "./login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import {UploadImgModalComponent} from "./layout/modals/upload-img-modal.component";
+import { DonationsComponent } from './pages/donations/donations.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {UploadImgModalComponent} from "./layout/modals/upload-img-modal.componen
     AboutComponent,
     FooterComponent,
     LoginComponent,
-    UploadImgModalComponent
+    UploadImgModalComponent,
+    DonationsComponent
   ],
   imports: [
     BrowserModule,
