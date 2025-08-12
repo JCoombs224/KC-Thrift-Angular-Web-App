@@ -1,56 +1,57 @@
-<div class="row pt-3">
-  <div class="col text-center">
-    <h1 class="display-6">Shop {{ category | titlecase }}</h1>
-  </div>
-</div>
-
-<div *ngIf="loadingProducts" class="row mt-3">
-  <div class="col text-center">
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Loading...</span>
+<div class="container-fluid overflow-hidden px-0">
+  <div class="row pt-3">
+    <div class="col text-center">
+      <h1 class="display-6">Shop {{ category | titlecase }}</h1>
     </div>
   </div>
-</div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12 col-md-auto ps-4" *ngIf="showFilters">
-      <h5 class="pt-3 pt-md-0 text-center text-md-start">Filters</h5>
-      <ul class="nav flex-md-column justify-content-center justify-content-md-start">
-        <li class="nav-item" >
-          <a class="nav-link ps-md-0" [routerLink]="['/shop', category]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">All</a>
-        </li>
-       <li class="nav-item">
-          <a class="nav-link ps-md-0" [routerLink]="['/shop', category, 'tops']" routerLinkActive="active">Tops</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link ps-md-0" routerLink="/shop/{{category}}/bottoms" routerLinkActive="active">Bottoms</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link ps-md-0" routerLink="/shop/{{category}}/shoes" routerLinkActive="active">Shoes</a>
-        </li>
-      </ul>
+  <div *ngIf="loadingProducts" class="row mt-3">
+    <div class="col text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
-    <div class="col">
-      <div class="row justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4 mt-0">
-        <div class="p-3" *ngFor="let product of products">
-          <div class="card shop-card h-100 bg-transparent border-0" (click)="viewProduct(product)">
-            <div class="item-container">
-              <img [src]="onlineImg ? product.image : 'assets/mens3.jpg'" class="card-img-top rounded-4" [class.in-cart-overlay]="isInCart(product)"  style="height: 40vh; object-fit: contain" [alt]="product.title" loading="lazy">
-              <div *ngIf="isInCart(product)" class="in-cart-text">In Cart</div>
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title">{{product.title}}</h5>
-              <p>${{product.price}}</p>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-auto ps-4" *ngIf="showFilters">
+        <h5 class="pt-3 pt-md-0 text-center text-md-start">Filters</h5>
+        <ul class="nav flex-md-column justify-content-center justify-content-md-start">
+          <li class="nav-item" >
+            <a class="nav-link ps-md-0" [routerLink]="['/shop', category]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">All</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link ps-md-0" [routerLink]="['/shop', category, 'tops']" routerLinkActive="active">Tops</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ps-md-0" routerLink="/shop/{{category}}/bottoms" routerLinkActive="active">Bottoms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ps-md-0" routerLink="/shop/{{category}}/shoes" routerLinkActive="active">Shoes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="row justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4 mt-0">
+          <div class="p-3" *ngFor="let product of products">
+            <div class="card shop-card h-100 bg-transparent border-0" (click)="viewProduct(product)">
+              <div class="item-container">
+                <img [src]="onlineImg ? product.image : 'assets/mens3.jpg'" class="card-img-top rounded-4" [class.in-cart-overlay]="isInCart(product)"  style="height: 40vh; object-fit: contain" [alt]="product.title" loading="lazy">
+                <div *ngIf="isInCart(product)" class="in-cart-text">In Cart</div>
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">{{product.title}}</h5>
+                <p>${{product.price}}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div *ngIf="products.length == 0 && !loadingProducts" class="text-center mt-5">
-    There are no products available in this category.
+    <div *ngIf="products.length == 0 && !loadingProducts" class="text-center mt-5">
+      There are no products available in this category.
+    </div>
   </div>
 </div>
-

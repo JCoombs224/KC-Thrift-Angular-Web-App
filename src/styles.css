@@ -7,10 +7,7 @@
 /* html, body { height: 100%; } */
 body {
     margin: 0;
-    /* font-family: Poppins, "Helvetica Neue", sans-serif;  */
-    /* background-image: url("assets/pier2.jpg");
-    background-size: cover;
-    background-attachment: fixed; */
+    background-color: #1f1f1f;
 }
 
 html { overflow-x: clip; }
