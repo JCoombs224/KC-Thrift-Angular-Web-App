@@ -38,7 +38,6 @@ export class NavComponent implements OnInit {
   showHeader = false;
   headerScrolled = false;
   menuOpen = false;
-  showDialog = true;
   isLoggedIn: Observable<boolean> = this.authService.user$;
 
   constructor(public router: Router,
@@ -51,11 +50,6 @@ export class NavComponent implements OnInit {
     }
     else {
       this.showHeader = false;
-    }
-
-    const showDialog = localStorage.getItem('showDialog');
-    if(showDialog == 'false') {
-      this.showDialog = false;
     }
 
     this.router.events.subscribe((val) => {
@@ -119,12 +113,6 @@ export class NavComponent implements OnInit {
       document.getElementById('navBrand').classList.add('in');
       document.getElementById('navbarHeader').classList.add('out');
     }
-  }
-
-  // TODO: Remove this function once website is done
-  closeDialog() {
-    this.showDialog = false;
-    localStorage.setItem('showDialog', 'false');
   }
 
   protected readonly faShoppingCart = faShoppingCart;

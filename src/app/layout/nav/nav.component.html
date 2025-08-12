@@ -54,17 +54,6 @@
     </div>
   </div>
   <div *ngIf="isLoggedIn | async" class="bg-dark text-light ps-1"><small>Logged in as admin (<a routerLink="/" (click)="logout()">Logout</a>)</small></div>
-  <div *ngIf="showDialog" class="position-sticky">
-    <div class="row">
-      <div class="col-12">
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong><fa-icon [icon]="faScrewdriverWrench"></fa-icon> Pardon our dust!</strong> We are currently working on rolling out our new and improved website. Some functions may not work as expected during this time.
-          Thank you for your patience.
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeDialog()"></button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div class="mobile-menu" [class.open]="menuOpen">
