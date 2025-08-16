@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'shop/:category', component: ShopComponent },
   { path: 'shop/:category/:subcategory', component: ShopComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }, // Wildcard route
 ];
 
 @NgModule({
