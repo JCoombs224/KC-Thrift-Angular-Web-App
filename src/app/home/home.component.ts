@@ -7,6 +7,7 @@ import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {BsModalRef, BsModalService, ModalOptions} from "ngx-bootstrap/modal";
 import {UploadImgModalComponent} from "../layout/modals/upload-img-modal.component";
 import {ToastrService} from "ngx-toastr";
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,9 @@ export class HomeComponent implements OnInit{
   constructor(private firebaseImageService: FirebaseImageService,
               private authService: AuthService,
               private modalService: BsModalService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private meta: Meta,
+              private title: Title) {
 
     if(this.screenWidth < 600) {
       this.tiles.push(this.newTile('banner_600x600.webp'));
@@ -50,6 +53,11 @@ export class HomeComponent implements OnInit{
 
   ngOnInit() {
     (window as any).instgrm.Embeds.process();
+    this.title.setTitle("Kit N Caboodle Thrift Store | Oceanside, CA");
+    this.meta.addTag({
+      name: 'description',
+      content: "Kit N Caboodle Thrift Store Boutique, Oceanside, CA. Shop a wide selection of vintage clothing online or come to our store for even better deals!"
+    });
   }
 
   newTile(imgName = '', title = '', text = '', rgb = 'rgb(255,255,255)') {

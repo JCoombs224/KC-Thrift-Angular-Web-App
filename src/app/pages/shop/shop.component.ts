@@ -5,6 +5,7 @@ import {BsModalRef, BsModalService, ModalOptions} from "ngx-bootstrap/modal";
 import {ViewProductModalComponent} from "../../layout/modals/view-product-modal.component";
 import {fadeIn} from "../../animations/fade-in.animation";
 import {CartService} from "../../services/cart.service";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-shop',
@@ -27,7 +28,8 @@ export class ShopComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private shopifyService: ShopifyService,
               private cartService: CartService,
-              private modalService: BsModalService) { }
+              private modalService: BsModalService,
+              private title: Title) { }
 
   ngOnInit(): void {
     // Subscribe to the route params to get the category
@@ -41,7 +43,7 @@ export class ShopComponent implements OnInit {
       this.products = JSON.parse(productsCache);
       this.loadingProducts = false;
     }
-    // console.log("Saved Products", this.products);
+    this.title.setTitle("Shop | Kit N Caboodle Thrift Store");
 
     this.categoryChange();
   }
